@@ -1,0 +1,21 @@
+from dictionary_generator import generate_dictionary
+from hash_simulator import hash_password
+from brute_force_simulator import brute_force_simulation
+from password_strength_analyzer import analyze_password
+from audit_report import generate_report
+
+passwords = ["admin123", "Password@123"]
+
+results = []
+for pwd in passwords:
+    analysis = analyze_password(pwd)
+    results.append(analysis)
+
+generate_report(results)
+
+# Demonstration brute-force
+hash_val = hash_password("test1")
+cracked, time_taken = brute_force_simulation(hash_val)
+print("\nBrute Force Demo:")
+print("Cracked Password:", cracked)
+print("Time Taken:", time_taken)
